@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herman Egorov - Разработка iGaming Решений и Слот-Игр</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Основной шрифт и фон */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0d0c1d;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* Анимированный фон с градиентом */
+        .animated-gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(245deg, #1d1a39, #451952, #6d2069, #0d0c1d);
+            background-size: 400% 400%;
+            animation: gradientAnimation 20s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Стили для "стеклянных" карточек */
+        .glass-card {
+            background: rgba(29, 26, 57, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(45, 41, 82, 0.6);
+            border-color: rgba(167, 139, 250, 0.5);
+            transform: translateY(-5px);
+        }
+
+        /* Стили для кнопок */
+        .btn-primary {
+            background: linear-gradient(90deg, #8e2de2, #4a00e0);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(142, 45, 226, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(142, 45, 226, 0.5);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #8e2de2;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #8e2de2;
+            color: white;
+        }
+        
+        /* Анимация появления элементов при скролле */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Стили для заголовков */
+        .section-title {
+            font-weight: 900;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #8e2de2, #4a00e0);
+            border-radius: 2px;
+        }
+        
+        /* Анимация печатающегося текста */
+        .typing-effect {
+            border-right: .15em solid #8e2de2;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #8e2de2; }
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+    <div class="animated-gradient-bg"></div>
+
+    <div class="relative overflow-hidden">
+        <!-- Header -->
+        <header class="absolute top-0 left-0 right-0 z-10 p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-white tracking-wider">H.E. GAMING</h1>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-300 hover:text-white transition">О нас</a>
+                    <a href="#solutions" class="text-gray-300 hover:text-white transition">Решения</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-white transition">Кейсы</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition">Контакты</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center text-center px-4 pt-20">
+            <div class="max-w-4xl">
+                <h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight">
+                    <span class="block">Слоты нового поколения</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">для вашего iGaming-бизнеса</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                    Мы создаем свежие и технологичные игровые решения, которые привлекают игроков и увеличивают прибыль. Готовы к выходу на рынок Латинской Америки.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="btn-primary text-white font-bold py-3 px-8 rounded-full text-lg">
+                        Обсудить проект
+                    </a>
+                    <a href="#portfolio" class="btn-secondary text-white font-bold py-3 px-8 rounded-full text-lg">
+                        Смотреть кейсы
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <main class="container mx-auto px-4 py-16 sm:py-24 space-y-24 sm:space-y-32">
+            <!-- About Us Section -->
+            <section id="about" class="reveal">
+                <h2 class="section-title text-3xl md:text-4xl text-center mb-12">Кто мы?</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-center md:text-left">
+                        <p class="text-lg mb-4">
+                            Меня зовут <strong>Герман Егоров</strong>, и я руковожу командой разработчиков программного обеспечения, специализирующейся на решениях для игровых автоматов и слотов. Наша страсть — создание уникального игрового опыта, который захватывает с первых секунд.
+                        </p>
+                        <p class="text-lg mb-6">
+                            Мы активно развиваемся и планируем экспансию на рынок <strong>Латинской Америки</strong>. В связи с этим мы ищем деловые контакты в сфере iGaming и будем благодарны за любую предоставленную информацию.
+                        </p>
+                        <a href="https://www.linkedin.com/in/herman-egorov-349314374/" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition">
+                            Мой LinkedIn
+                        </a>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="https://placehold.co/400x400/1d1a39/e0e0e0?text=H.E." alt="Фото Германа Егорова" class="rounded-full shadow-2xl border-4 border-purple-500/50" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1d1a39/e0e0e0?text=H.E.';">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Solutions Section -->
+            <section id="solutions" class="reveal">
+                <h2 class="section-title text-3xl md:text-4xl text-center mb-16">Наши решения для вашего бизнеса</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1 -->
+                    <div class="glass-card rounded-xl p-6 text-center">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-16 h-16 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2 1M4 7l2-1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Разработчики и издатели игр</h3>
+                        <p class="text-gray-300">Предлагаем готовые игровые механики и технологии для быстрой интеграции в ваши проекты.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="glass-card rounded-xl p-6 text-center">
+                        <div class="flex justify-center mb-4">
+                           <svg class="w-16 h-16 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">iGaming Sales-команды</h3>
+                        <p class="text-gray-300">Свежий и востребованный продукт для расширения вашего портфолио и привлечения новых клиентов.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="glass-card rounded-xl p-6 text-center">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-16 h-16 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Корпоративные B2B клиенты</h3>
+                        <p class="text-gray-300">Кастомные игровые решения для маркетинговых кампаний, геймификации и повышения лояльности.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="glass-card rounded-xl p-6 text-center">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-16 h-16 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1m0-1V4m0 2.01M12 18v-2m0-2v-2m0-2V8m0 0h.01M12 18h.01M12 20v-1m0-1v.01M12 4h.01M12 2h.01M4 12H2m2 0h1m1 0h.01M20 12h2m-2 0h-1m-1 0h-.01M16 16l-1-1m1 1l1-1m-1 1l-1 1m1-1l1 1M8 8l1 1m-1-1l-1 1m1-1l1-1m-1-1l-1-1"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Онлайн-казино</h3>
+                        <p class="text-gray-300">Инновационные слоты с уникальными механиками для удержания и вовлечения вашей аудитории.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="reveal">
+                <h2 class="section-title text-3xl md:text-4xl text-center mb-16">Наши кейсы</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Portfolio Item 1 -->
+                    <div class="glass-card rounded-lg overflow-hidden group">
+                        <img src="https://placehold.co/600x400/6d2069/ffffff?text=Cosmic+Gems" alt="Игра Cosmic Gems" class="w-full h-48 object-cover transition duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6d2069/ffffff?text=Cosmic+Gems';">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-white">Cosmic Gems</h3>
+                            <p class="text-gray-400">Слот с каскадными выигрышами и межгалактическими бонусами.</p>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2 -->
+                    <div class="glass-card rounded-lg overflow-hidden group">
+                        <img src="https://placehold.co/600x400/451952/ffffff?text=Aztec+Gold" alt="Игра Aztec Gold" class="w-full h-48 object-cover transition duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/600x400/451952/ffffff?text=Aztec+Gold';">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-white">Aztec Gold: Respin</h3>
+                            <p class="text-gray-400">Приключенческий слот с механикой респинов и поиском сокровищ.</p>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 3 -->
+                    <div class="glass-card rounded-lg overflow-hidden group">
+                        <img src="https://placehold.co/600x400/1d1a39/ffffff?text=Neon+City+777" alt="Игра Neon City 777" class="w-full h-48 object-cover transition duration-500 group-hover:scale-110" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1d1a39/ffffff?text=Neon+City+777';">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-white">Neon City 777</h3>
+                            <p class="text-gray-400">Классический слот в стилистике киберпанка с множителями.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="text-center mt-12">
+                    <p class="text-lg text-gray-300">Заинтересованы в новых, свежих слотах? Мы можем выслать вам наши полные кейсы.</p>
+                    <a href="#contact" class="btn-primary mt-4 inline-block text-white font-bold py-3 px-8 rounded-full text-lg">
+                        Запросить кейсы
+                    </a>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="reveal">
+                <div class="glass-card rounded-2xl p-8 md:p-12 lg:p-16 max-w-4xl mx-auto">
+                    <h2 class="section-title text-3xl md:text-4xl text-center mb-4">Начнем сотрудничество?</h2>
+                    <p class="text-center text-gray-300 mb-10 max-w-2xl mx-auto">
+                        Мы открыты для предложений и готовы вместе развиваться и достигать новых высот в сфере iGaming. Свяжитесь с нами, чтобы получить наши кейсы или обсудить возможности для партнерства.
+                    </p>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Ваше имя</label>
+                                <input type="text" name="name" id="name" autocomplete="name" class="w-full bg-gray-900/50 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Ваш Email</label>
+                                <input type="email" name="email" id="email" autocomplete="email" class="w-full bg-gray-900/50 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Сообщение</label>
+                            <textarea id="message" name="message" rows="4" class="w-full bg-gray-900/50 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Расскажите о вашей компании или проекте..."></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn-primary text-white font-bold py-3 px-12 rounded-full text-lg w-full sm:w-auto">
+                                Отправить
+                            </button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-8 text-gray-400">
+                        <p>Или напишите нам напрямую:</p>
+                        <a href="mailto:Eha.gaming.org@mail.ru" class="text-purple-400 hover:text-purple-300 font-semibold text-lg transition">Eha.gaming.org@mail.ru</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-black/20 mt-16">
+            <div class="container mx-auto py-6 px-4 text-center text-gray-500">
+                <p>&copy; 2024 Herman Egorov Gaming Solutions. Все права защищены.</p>
+                <p>Разработка iGaming-решений для мирового рынка.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript для анимации появления элементов при скролле
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Опционально: отключаем наблюдение после первого появления
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // Элемент считается видимым при появлении на 10%
+            });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Плавный скролл по якорям
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
